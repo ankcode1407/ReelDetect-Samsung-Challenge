@@ -25,7 +25,7 @@
 SNS applications (such as Facebook and YouTube), transmit both video (short videos, reels, etc.) and non-video traffic (feeds, suggestions, etc.) through the same data pipeline. Develop an AI model to differentiate reel / video traffic versus non-reel/video traffic in real-time, enabling user equipment (UE) to optimize performance dynamically. The model should also ensure accuracy under varying network congestion and coverage conditions.
 - **Team name** - Code warrior
 - **Team members (Names)** - *Shaurya Mishra*, *Saima Bano*
-- **Demo Video Link** - *(Upload the Demo video on Youtube as a public or unlisted video and share the link. Google Drive uploads or any other uploads are not allowed.)*
+- **Demo Video Link** - https://drive.google.com/file/d/1napdwnX4FaQyzkrWLCsAr3Jh1DEUR0zc/view?usp=sharing
 
 
 ### Project Artefacts
