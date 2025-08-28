@@ -1,0 +1,39 @@
+Down/Up Byte Ratio (Rdu)
+How: down_bytes / max(1, up_bytes) within a time window (e.g., 3 s).
+Why: Reels are highly downlink-heavy (segment downloads) while feeds have relatively more upstream requests per byte.
+
+Downlink Throughput (bps_down)
+How: 8 * down_bytes / window_duration.
+Why: Video segments deliver sustained higher downlink rates than image/JSON feeds, which are spikier but smaller overall.
+
+Downlink Packet Size Mean & Std (psz_mean_down, psz_std_down)
+How: Mean and standard deviation of downlink packet lengths.
+Why: Video segments often ship in consistently large packets (MTU-ish), whereas feeds mix small/medium objects → more variability.
+
+Downlink Packet Size P90 (psz_p90_down)
+How: 90th percentile of downlink packet sizes.
+Why: Captures the tail of large segment packets that short videos regularly hit; feeds less often reach that tail.
+
+Inter-Arrival Time (IAT) Mean & CoV (iat_mean_down, iat_cov_down)
+How: Compute gaps between consecutive downlink packets; CoV = std/mean.
+Why: Streaming shows tight bursts (small IAT) during segment fetches and more regularity; feeds are more irregular and sparse.
+
+Burst Count (burst_cnt)
+How: Define a burst as consecutive packets with IAT < τ (e.g., 5–10 ms). Count bursts per window.
+Why: Reels/shorts tend to produce multiple tight bursts as each segment/prefetch arrives.
+
+Avg Bytes per Burst (burst_bytes_avg)
+How: For each burst, sum packet sizes; average across bursts in the window.
+Why: Video bursts are chunky (hundreds of KB to MB). Feed bursts are smaller.
+
+Duty Cycle (traffic_on_ratio)
+How: Split the window into small bins (e.g., 200 ms). Compute fraction of bins with down_bytes > ε.
+Why: Streaming looks like on/off chunking (several bins “on” per segment) vs feed which has fewer active bins.
+
+Packet Size Entropy (psz_entropy_down)
+How: Histogram downlink packet sizes (bucketed) and compute Shannon entropy.
+Why: Video delivery often has lower entropy (many near-MTU packets), while feeds mix a broader variety → higher entropy.
+
+Upstream Tiny-Packet Rate (up_tiny_pkt_rate)
+How: Count upstream packets with size < 200 B per second (or per window).
+Why: Feeds involve frequent small requests (scroll fetches), whereas video is dominated by fewer control requests relative to massive downlink.

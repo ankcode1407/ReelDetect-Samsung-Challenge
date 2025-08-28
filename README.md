@@ -21,9 +21,10 @@
 
 # Samsung EnnovateX 2025 AI Challenge Submission
 
-- **Problem Statement** - *(Must exactly match one of the nine Samsung EnnovateX AI Challenge Problem Statements)*
-- **Team name** - *(As provided during the time of registration)*
-- **Team members (Names)** - *Member 1 Name*, *Member 2 Name*, *Member 3 Name*, *Member 4 Name* 
+- **Problem Statement** - Real-time Detection of Reel Traffic vs Non-reel Traffic in a Social-networking Application
+SNS applications (such as Facebook and YouTube), transmit both video (short videos, reels, etc.) and non-video traffic (feeds, suggestions, etc.) through the same data pipeline. Develop an AI model to differentiate reel / video traffic versus non-reel/video traffic in real-time, enabling user equipment (UE) to optimize performance dynamically. The model should also ensure accuracy under varying network congestion and coverage conditions.
+- **Team name** - Code warrior
+- **Team members (Names)** - *Shaurya Mishra*, *Saima Bano*
 - **Demo Video Link** - *(Upload the Demo video on Youtube as a public or unlisted video and share the link. Google Drive uploads or any other uploads are not allowed.)*
 
 
